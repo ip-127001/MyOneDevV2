@@ -1,0 +1,1 @@
+class progectClass (var dasha:String)
