@@ -1,4 +1,6 @@
 
+import org.apache.commons.net.ftp.FTPClient
+import org.apache.commons.net.ftp.FTPFile
 import org.w3c.dom.Document
 import org.w3c.dom.Element
 import org.w3c.dom.Node
@@ -9,8 +11,19 @@ import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 import javax.xml.parsers.DocumentBuilder
 import javax.xml.parsers.DocumentBuilderFactory
-
 fun main() {
+
+    val clientFTP : FTPClient = FTPClient()
+    clientFTP.connect("ftp.zakupki.gov.ru",21)
+    clientFTP.login("fz223free","fz223free")
+
+    var filesFTP : Array<out FTPFile>? = clientFTP.listFiles("/out/nsi/nsiPurchaseMethod/")
+
+    if (filesFTP != null && filesFTP.size > 0) {
+        for (fileFTP : FTPFile in filesFTP) {
+            println(fileFTP)
+        }
+    }
 
     val file = File ("c://xml/nsiPurchaseMethod_all_20190310_013244_001.xml")
     var factory:DocumentBuilderFactory = DocumentBuilderFactory.newDefaultInstance()
