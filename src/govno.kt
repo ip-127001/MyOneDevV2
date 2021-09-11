@@ -18,6 +18,7 @@ class govno {
     var creator = creator()
     var extended : Boolean? = null
     var competitive : Boolean? = null
+    var numberTest : Int = -1
 
      @Override
      override fun toString ()
