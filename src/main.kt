@@ -11,6 +11,7 @@ import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 import javax.xml.parsers.DocumentBuilder
 import javax.xml.parsers.DocumentBuilderFactory
+
 fun main() {
 
     val clientFTP : FTPClient = FTPClient()
@@ -87,6 +88,8 @@ fun main() {
                 }
             //}
             println(unit1.toString())
+            i += 1
+            i -= 1
             i += 1
         }
     }
